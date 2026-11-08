@@ -1,0 +1,21 @@
+数学小课堂：槽位 7 部署记录
+日期：2026-11-08（Asia/Shanghai）
+地址：https://stu60-7.space.aiec.wflaiedu.com/
+账号：stu60；服务器：49.235.184.137
+远端目录：/home/stu60/project7；仅 public 目录中的首页及 14 课对外提供。
+启动入口：/home/stu60/start7.sh
+常驻服务：math-classroom-slot7.service（systemd --user，enabled/active，Linger=yes）
+重启命令：systemctl --user restart math-classroom-slot7.service
+当前监听：127.0.0.1:33751；每次启动绑定端口 0，动态分配。
+端口文件：/home/stu60/.service_port7
+每次启动自动执行：sudo -n /usr/local/bin/set-stu-nginx.sh stu60 7
+已确认该命令成功配置 HTTPS，实际重启后新端口和代理一致。
+验证：两套现有测试通过；15 个 HTML 公网 HTTP 200，字节与本地完全一致；HTTP/HTTPS 首页均 200；断线重连仍 active；重启后 HTTPS 内容一致。
+移动适配：补齐 viewport-fit=cover、安全区、44px 点击区域和移动端文字样式，并同步生成源与离线包。
+浏览器限制：预览浏览器标签已显示首页标题，但页面检查接口连续超时。本次未完成 375/768/1280 视口实测，未验证 iOS Safari、Android Chrome、微信、iPad 或桌面 Safari。
+部署未改变其他槽位项目。学习记录保存在使用者当前浏览器。
+
+更新：20261108-114911（Asia/Shanghai）
+仅更新 public/index.html，移除首页顶部独立动点入口；14 课目录保留。
+回退备份：/home/stu60/project7/index-backup-20261108-114911.html
+验证：HTTPS 根入口及全部 15 个 HTML 均返回 200，内容与本地逐字节一致；重新连接后服务 active。未重启服务，端口保持 33751。

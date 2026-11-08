@@ -1,0 +1,16 @@
+[Unit]
+Description=Math classroom (stu60 slot 7)
+After=network.target
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/home/stu60/project7
+ExecStart=/home/stu60/start7.sh
+Restart=on-failure
+RestartSec=10
+UMask=0022
+
+[Install]
+WantedBy=default.target

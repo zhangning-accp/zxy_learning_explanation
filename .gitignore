@@ -1,0 +1,15 @@
+# Local credentials and deployment instructions containing a password
+/学生部署提示词模板.md
+.env
+.env.*
+!.env.example
+
+# Local dependencies and caches
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Operating system files
+.DS_Store
+Thumbs.db
